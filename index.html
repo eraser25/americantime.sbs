@@ -570,369 +570,6 @@
       }
     }
   </style>
-
-  <style>
-    /* ============================================================
-       PREMIUM UI OVERRIDES
-       ============================================================ */
-
-    :root {
-      --premium-navy-1: #041b5d;
-      --premium-navy-2: #082f95;
-      --premium-navy-3: #123fa9;
-      --premium-red: #ef1515;
-      --premium-gold: #d8b15b;
-      --premium-glass: rgba(255, 255, 255, .92);
-    }
-
-    body {
-      background:
-        radial-gradient(circle at 12% 8%, rgba(255,255,255,.11), transparent 26%),
-        radial-gradient(circle at 86% 14%, rgba(216,177,91,.08), transparent 22%),
-        radial-gradient(circle at 86% 82%, rgba(239,21,21,.14), transparent 28%),
-        linear-gradient(145deg, #031548 0%, #082f95 54%, #041b5d 100%);
-      background-attachment: fixed;
-    }
-
-    .page-shell {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-shell::before,
-    .page-shell::after {
-      content: "";
-      position: fixed;
-      pointer-events: none;
-      border-radius: 999px;
-      filter: blur(2px);
-      opacity: .9;
-      z-index: 0;
-    }
-
-    .page-shell::before {
-      width: 340px;
-      height: 340px;
-      left: -150px;
-      top: 15%;
-      background: radial-gradient(circle, rgba(255,255,255,.08), transparent 68%);
-    }
-
-    .page-shell::after {
-      width: 420px;
-      height: 420px;
-      right: -180px;
-      bottom: -80px;
-      background: radial-gradient(circle, rgba(239,21,21,.12), transparent 68%);
-    }
-
-    .app {
-      position: relative;
-      z-index: 1;
-    }
-
-    .brand {
-      margin-bottom: 24px;
-    }
-
-    .brand img {
-      width: min(720px, 90vw);
-      max-height: 138px;
-      filter:
-        drop-shadow(0 10px 26px rgba(0,0,0,.22))
-        drop-shadow(0 0 18px rgba(255,255,255,.05));
-    }
-
-    .card {
-      position: relative;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.985), rgba(250,252,255,.97));
-      border: 1px solid rgba(255,255,255,.76);
-      box-shadow:
-        0 34px 95px rgba(0, 17, 74, .34),
-        inset 0 1px 0 rgba(255,255,255,.95);
-      backdrop-filter: blur(14px);
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 4px;
-      background: linear-gradient(
-        90deg,
-        var(--premium-navy-2),
-        var(--premium-gold),
-        var(--premium-red)
-      );
-      z-index: 2;
-    }
-
-    .hero {
-      position: relative;
-    }
-
-    .hero::after {
-      content: "AMERICAN TIME";
-      position: absolute;
-      right: 34px;
-      bottom: 20px;
-      font-weight: 900;
-      font-size: 58px;
-      letter-spacing: -.05em;
-      color: rgba(8,47,149,.025);
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .eyebrow {
-      color: var(--premium-navy-2);
-      background:
-        linear-gradient(180deg, rgba(240,245,255,.98), rgba(233,240,255,.92));
-      border: 1px solid rgba(8,47,149,.12);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
-      letter-spacing: .08em;
-    }
-
-    .hero h1 {
-      background: linear-gradient(135deg, #061d64 0%, #0b359e 72%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-wrap: balance;
-    }
-
-    .chips {
-      margin-top: 30px;
-    }
-
-    .chip {
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(8,47,149,.10);
-      box-shadow: 0 8px 22px rgba(8,47,149,.07);
-    }
-
-    .primary-btn {
-      position: relative;
-      overflow: hidden;
-      letter-spacing: .015em;
-      background:
-        linear-gradient(180deg, #ff2626 0%, #e70d0d 100%);
-      box-shadow:
-        0 14px 30px rgba(237,17,17,.26),
-        inset 0 1px 0 rgba(255,255,255,.25);
-    }
-
-    .primary-btn::after {
-      content: "";
-      position: absolute;
-      top: -70%;
-      left: -42%;
-      width: 36%;
-      height: 240%;
-      transform: rotate(24deg);
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.32),
-        transparent
-      );
-      transition: left .55s ease;
-    }
-
-    .primary-btn:hover::after {
-      left: 120%;
-    }
-
-    .secondary-btn {
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.85);
-    }
-
-    .test-shell,
-    .form-wrap,
-    .result-wrap {
-      position: relative;
-    }
-
-    .test-top h2,
-    .form-head h2 {
-      letter-spacing: -.035em;
-    }
-
-    .question-counter {
-      border: 1px solid rgba(8,47,149,.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
-    }
-
-    .progress-track {
-      background: #e8edf7;
-      box-shadow: inset 0 1px 2px rgba(8,47,149,.08);
-    }
-
-    .progress-bar {
-      background:
-        linear-gradient(90deg, #0a3aa8 0%, #2f61d3 50%, #ef1515 100%);
-      box-shadow: 0 0 14px rgba(47,97,211,.22);
-    }
-
-    .question-stage {
-      will-change: transform, opacity;
-    }
-
-    .question-stage.question-enter {
-      animation: questionEnter .36s cubic-bezier(.2,.8,.2,1) both;
-    }
-
-    .question-stage.question-exit-left {
-      animation: questionExitLeft .20s ease both;
-    }
-
-    .question-stage.question-exit-right {
-      animation: questionExitRight .20s ease both;
-    }
-
-    @keyframes questionEnter {
-      from {
-        opacity: 0;
-        transform: translateY(10px) scale(.992);
-        filter: blur(2px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes questionExitLeft {
-      to {
-        opacity: 0;
-        transform: translateX(-18px);
-      }
-    }
-
-    @keyframes questionExitRight {
-      to {
-        opacity: 0;
-        transform: translateX(18px);
-      }
-    }
-
-    .option {
-      position: relative;
-      overflow: hidden;
-      box-shadow:
-        0 6px 16px rgba(6,36,111,.035),
-        inset 0 1px 0 rgba(255,255,255,.9);
-    }
-
-    .option::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: transparent;
-      transition: .18s ease;
-    }
-
-    .option:hover::before,
-    .option.selected::before {
-      background: linear-gradient(180deg, var(--premium-navy-2), var(--premium-red));
-    }
-
-    .option.selected {
-      box-shadow:
-        0 10px 24px rgba(8,47,149,.10),
-        inset 0 0 0 1px var(--navy);
-    }
-
-    .field input,
-    .field select {
-      background: rgba(255,255,255,.94);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.92);
-    }
-
-    .privacy-note {
-      border: 1px solid rgba(8,47,149,.075);
-    }
-
-    .recommendation {
-      box-shadow: 0 16px 38px rgba(8,47,149,.08);
-    }
-
-    /* Floating WhatsApp CTA */
-    .whatsapp-fab {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 50;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 54px;
-      padding: 0 17px 0 14px;
-      border-radius: 999px;
-      color: #fff;
-      text-decoration: none;
-      background: #25D366;
-      box-shadow: 0 16px 36px rgba(0,0,0,.22);
-      font-size: 14px;
-      font-weight: 850;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-
-    .whatsapp-fab:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 42px rgba(0,0,0,.25);
-      color: #fff;
-    }
-
-    .whatsapp-fab__icon {
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      background: rgba(255,255,255,.15);
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    .whatsapp-fab__text {
-      white-space: nowrap;
-    }
-
-    @media (max-width: 680px) {
-      .hero::after {
-        display: none;
-      }
-
-      .whatsapp-fab {
-        right: 12px;
-        bottom: 12px;
-        min-height: 50px;
-        padding-right: 14px;
-      }
-
-      .whatsapp-fab__text {
-        font-size: 12px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .001ms !important;
-      }
-    }
-  </style>
-
 </head>
 
 <body>
@@ -988,12 +625,10 @@
               <div id="progressBar" class="progress-bar"></div>
             </div>
 
-            <div id="questionStage" class="question-stage">
-              <div id="levelTag" class="level-tag">A1 düzeyi</div>
-              <h3 id="questionText" class="question-text"></h3>
+            <div id="levelTag" class="level-tag">A1 düzeyi</div>
+            <h3 id="questionText" class="question-text"></h3>
 
-              <div id="options" class="options"></div>
-            </div>
+            <div id="options" class="options"></div>
 
             <div class="test-actions">
               <button id="prevBtn" class="secondary-btn" type="button">
@@ -1171,20 +806,12 @@
 
       ÖRNEK:
       const GOOGLE_SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxx/exec";
+        "https://script.google.com/macros/s/AKfycbzDJZkqg8-4lQnMqmFveDUPtxt6Hrh1cac-iCh0OSBiaXQ9Zjp8CB6AyzedalvVDBRv/exec";
 
       google-apps-script.gs dosyasındaki kodu Apps Script'e ekleyip
       Web App olarak yayınladıktan sonra size verilen /exec adresini kullanın.
     */
-    const GOOGLE_SCRIPT_URL = "BURAYA_GOOGLE_APPS_SCRIPT_EXEC_URL";
-
-    /*
-      WhatsApp numarasını ülke koduyla, "+" ve boşluk kullanmadan yazın.
-      Örnek Türkiye: 905xxxxxxxxx
-    */
-    const WHATSAPP_NUMBER = "902129030923";
-    const WHATSAPP_MESSAGE =
-      "Merhaba, American Time İngilizce seviye testi hakkında bilgi almak istiyorum.";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzDJZkqg8-4lQnMqmFveDUPtxt6Hrh1cac-iCh0OSBiaXQ9Zjp8CB6AyzedalvVDBRv/exec";
 
     const questions = [
       {
@@ -1318,7 +945,6 @@
     const levelTag = document.getElementById("levelTag");
     const questionText = document.getElementById("questionText");
     const optionsEl = document.getElementById("options");
-    const questionStage = document.getElementById("questionStage");
 
     const leadForm = document.getElementById("leadForm");
     const submitBtn = document.getElementById("submitBtn");
@@ -1332,14 +958,6 @@
 
     function renderQuestion() {
       const q = questions[currentQuestion];
-
-      questionStage.classList.remove(
-        "question-enter",
-        "question-exit-left",
-        "question-exit-right"
-      );
-      void questionStage.offsetWidth;
-      questionStage.classList.add("question-enter");
 
       questionCounter.textContent =
         `${currentQuestion + 1} / ${questions.length}`;
@@ -1478,29 +1096,6 @@
       showView("result");
     }
 
-    function animateQuestionChange(direction, callback) {
-      const exitClass =
-        direction === "next"
-          ? "question-exit-left"
-          : "question-exit-right";
-
-      questionStage.classList.remove("question-enter");
-      questionStage.classList.add(exitClass);
-
-      window.setTimeout(() => {
-        callback();
-        questionStage.classList.remove(exitClass);
-      }, 180);
-    }
-
-    const whatsappFab = document.getElementById("whatsappFab");
-
-    whatsappFab.href =
-      "https://wa.me/" +
-      encodeURIComponent(WHATSAPP_NUMBER) +
-      "?text=" +
-      encodeURIComponent(WHATSAPP_MESSAGE);
-
     startBtn.addEventListener("click", () => {
       currentQuestion = 0;
       renderQuestion();
@@ -1509,10 +1104,8 @@
 
     prevBtn.addEventListener("click", () => {
       if (currentQuestion > 0) {
-        animateQuestionChange("prev", () => {
-          currentQuestion--;
-          renderQuestion();
-        });
+        currentQuestion--;
+        renderQuestion();
       }
     });
 
@@ -1520,10 +1113,8 @@
       if (answers[currentQuestion] === null) return;
 
       if (currentQuestion < questions.length - 1) {
-        animateQuestionChange("next", () => {
-          currentQuestion++;
-          renderQuestion();
-        });
+        currentQuestion++;
+        renderQuestion();
         return;
       }
 
@@ -1655,18 +1246,5 @@
       }
     });
   </script>
-
-  <a
-    id="whatsappFab"
-    class="whatsapp-fab"
-    href="#"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="WhatsApp üzerinden eğitim danışmanlığı alın"
-  >
-    <span class="whatsapp-fab__icon" aria-hidden="true">☎</span>
-    <span class="whatsapp-fab__text">WhatsApp Danışmanlık</span>
-  </a>
-
 </body>
 </html>
